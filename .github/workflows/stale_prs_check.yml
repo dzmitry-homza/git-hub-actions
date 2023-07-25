@@ -1,7 +1,7 @@
 name: 'Stale PRs check'
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '1 * * * *'
 
 jobs:
   stale:
