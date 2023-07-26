@@ -2,7 +2,7 @@ name: 'Stale PRs check'
 
 on:
   schedule:
-  - cron: '*/1 * * * *'
+  - cron: '* * * * *'
 
 jobs:
   stale:
