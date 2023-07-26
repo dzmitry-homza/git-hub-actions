@@ -2,7 +2,7 @@ name: 'Stale PRs check'
 
 on:
   schedule:
-  - cron: '*/5 * * * *'
+  - cron: '* * * * *'
 
 jobs:
   stale:
@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+      issues: read
 
     steps:
     - uses: actions/stale@v8
