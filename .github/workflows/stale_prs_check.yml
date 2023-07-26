@@ -1,13 +1,16 @@
 name: Stale PRs check
-permissions:
-pull-requests: write
+
 on:
   schedule:
     - cron: '*/5 * * * *'
 
 jobs:
   stale:
+  
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
     steps:
       - uses: actions/stale@v8
         with:
