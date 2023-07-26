@@ -5,7 +5,7 @@ on:
   - cron: '0 * * * *'
   pull_request:
     types: [opened, reopened, ready_for_review, synchronize]
-    
+
 jobs:
   stale-pr-detect:
 
@@ -29,11 +29,7 @@ jobs:
       pull-requests: read
 
     steps:
-<<<<<<< HEAD
-    - uses: KaplanTestPrep/stale-pr-slack-notify
-=======
     - uses: KaplanTestPrep/stale-pr-slack-notify@{version}
->>>>>>> main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEB_HOOK: 'https://hooks.slack.com/services/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'
