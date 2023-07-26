@@ -29,7 +29,7 @@ jobs:
       pull-requests: read
 
     steps:
-    - uses: KaplanTestPrep/stale-pr-slack-notify@{version}
+    - uses: KaplanTestPrep/stale-pr-slack-notify@v1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEB_HOOK: 'https://hooks.slack.com/services/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'
