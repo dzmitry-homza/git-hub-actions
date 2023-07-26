@@ -1,4 +1,4 @@
-name: 'Stale PRs check'
+name: Stale PRs check
 
 on:
   schedule:
