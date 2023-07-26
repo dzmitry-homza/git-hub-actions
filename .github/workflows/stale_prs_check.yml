@@ -3,6 +3,8 @@ name: Stale PRs check
 on:
   schedule:
   - cron: '0 * * * *'
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
 
 jobs:
   stale-pr-detect:
