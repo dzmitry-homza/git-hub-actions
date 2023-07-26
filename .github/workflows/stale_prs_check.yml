@@ -1,4 +1,4 @@
-name: 'Stale PRs check'
+name: Stale PRs check
 permissions:
 pull-requests: write
 on:
@@ -6,7 +6,7 @@ on:
     - cron: '*/5 * * * *'
 
 jobs:
-  stale-prs:
+  stale:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@v8
