@@ -2,37 +2,45 @@ name: Stale PRs check
 
 on:
   schedule:
-  - cron: '0 * * * *'
+    - cron: '0 * * * *'
   pull_request:
-    types: [opened, reopened, ready_for_review, synchronize]
+    types:
+      [
+        opened,
+        reopened,
+        ready_for_review,
+        synchronize,
+      ]
 
 jobs:
   stale-pr-detect:
-
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       issues: write
 
     steps:
-    - uses: actions/stale@v8
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        days-before-close: -1
-        days-before-stale: 0
-        only-labels: 'Dispatch'
+      - uses: actions/stale@v8
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-close: -1
+          days-before-stale: 0
+          only-labels: 'Dispatch'
 
   stale-pr-slack-notifications:
-
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read
 
     steps:
-    - uses: KaplanTestPrep/stale-pr-slack-notification@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SLACK_WEB_HOOK: 'https://hooks.slack.com/services/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'
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale_label: Stale
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: dzmitry-homza/stale-pr-slack-notification@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEB_HOOK: 'https://hooks.slack.com/services/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'
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale_label: Stale
+      - run: npm i --production
+      - run: npm start
