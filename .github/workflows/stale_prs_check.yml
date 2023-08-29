@@ -42,5 +42,3 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale_label: Stale
-      - run: npm i --production
-      - run: npm start
