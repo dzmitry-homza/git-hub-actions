@@ -33,7 +33,7 @@ jobs:
       pull-requests: read
 
     steps:
-      - uses: dzmitry-homza/stale-pr-slack-notification@main
+      - uses: dzmitry-homza/stale-pr-slack-notification@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEB_HOOK: 'https://hooks.slack.com/services/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'
