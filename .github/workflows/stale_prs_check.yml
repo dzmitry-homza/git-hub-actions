@@ -36,7 +36,7 @@ jobs:
       - uses: dzmitry-homza/stale-pr-slack-notification@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEB_HOOK: 'https://hooks.slack.com/services/T8GUMSGES/B06TCQCSLBY/LRQ849DALwNyEiuPy24hQ'
+          SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK_URL }}
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale_label: Stale
