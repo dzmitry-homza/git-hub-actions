@@ -2,7 +2,7 @@ name: Stale PRs check
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '* */1 * * *'
   pull_request:
     types:
       [
@@ -25,7 +25,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           days-before-close: -1
           days-before-stale: 0
-          only-labels: 'Dispatch'
+          remove-stale-when-updated: false
 
   stale-pr-slack-notifications:
     runs-on: ubuntu-latest
@@ -33,7 +33,7 @@ jobs:
       pull-requests: read
 
     steps:
-      - uses: dzmitry-homza/stale-pr-slack-notification@v1
+      - uses: dzmitry-homza/stale-pr-slack-notification@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEB_HOOK: ${{ secrets.SLACK_WEB_HOOK_URL }}
